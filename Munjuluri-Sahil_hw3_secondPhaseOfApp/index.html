@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Munjuluri</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #about {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        #content {
+            flex: 2;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sahil Munjuluri</h1>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am Sahil Munjuluri. .</p>
+            <center>
+            <img src="IMG1.jpeg" width="250" height="250"></center>
+        </section>
+        <section id="content">
+            <h2>Content</h2>
+            <p>This is a list of my favorite songs</p>
+            <ul>
+                <li>FEIN</li>
+                <li>WOW</li>
+                <li>AFTER HOURS</li>
+            </ul>
+            <p>This is a list of my favorite artists</p>
+            <ol>
+                <li>TRAVIS SCOTT</li>
+                <li>POST MALONE</li>
+                <li>THE WEEKND</li>
+            </ol>
+            <p>This is a table for the highest streaming songs and arists name</p>
+            <table>
+                <tr>
+                    <th>SONG </th>
+                    <th>ARTIST</th>
+                </tr>
+                <tr>
+                    <td>BLINDING LIGHTS</td>
+                    <td>THE WEEKND</td>
+                </tr>
+                <tr>
+                    <td>GOOSEBUMPS</td>
+                    <td>TRAVIS SCOTT</td>
+                </tr>
+            </table>
+
+        </section>
+    </main>
+    <h2>Pie Chart for my music categories</h2>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div style =" width:20%">
+    <canvas id="chart1" width="100" height="100"></canvas></div>
+    <div style =" width:20%">
+    <canvas id="chart2" width="100" height="100"></canvas></div>
+    <div style =" width:20%">
+    <canvas id="chart3" width="100" height="100"></canvas></div>
+
+    <script>
+        // Data for the first pie chart
+        var data1 = {
+            labels: ["WEEKND", "TRAVIS SCOTT", "POST MALONE"],
+            datasets: [{
+                data: [30, 40, 30],
+                backgroundColor: ["#FF5733", "#33FF57", "#3366FF"],
+            }],
+        };
+
+        // Data for the second pie chart
+        var data2 = {
+            labels: ["HIP-HOP", "HEAVYDROP", "SOOTHING"],
+            datasets: [{
+                data: [25, 50, 25],
+                backgroundColor: ["#FF5733", "#33FF57", "#3366FF"],
+            }],
+        };
+
+        // Data for the third pie chart
+        var data3 = {
+            labels: ["GYM", "TRAVEL", "RELAXING"],
+            datasets: [{
+                data: [10, 60, 30],
+                backgroundColor: ["#FF5733", "#33FF57", "#3366FF"],
+            }],
+        };
+
+        // Create the pie charts
+        var ctx1 = document.getElementById("chart1").getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'pie',
+            data: data1,
+        });
+
+        var ctx2 = document.getElementById("chart2").getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: data2,
+        });
+
+        var ctx3 = document.getElementById("chart3").getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: data3,
+        });
+    </script>
+
+<h1>Sample Form</h1>
+
+    <form method="post" name="google-sheet">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <br>
+        <label for="fav artist">Artist Name</label>
+        <textarea id="message" name="artistname" rows="4" required></textarea>
+        <br>
+        <label for="New Music">New Music</label>
+        <textarea id="message" name="NewMusic" rows="4" required></textarea>
+        <br>
+        <label for="Artists Essentials">Artists Essentials</label>
+        <textarea id="message" name="Essentials" rows="4" required></textarea>
+        <br>
+        <label for="All Time Hits">All Time</label>
+        <textarea id="message" name="AllTime" rows="4" required></textarea>
+        <br>
+        <label for="Music By Mood">Music By Mood</label>
+        <textarea id="message" name="Mood" rows="4" required></textarea>
+        <br>
+        <label for="Genres">Browse Categories</label>
+        <textarea id="message" name="Genres" rows="4" required></textarea>
+        <br>
+        <label for="Similar Artists">Recommended</label>
+        <textarea id="message" name="SimilarSongs" rows="4" required></textarea>
+        <br>
+
+
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz37tmo5AliCH1y05hfJdsIx0s4XMAagE6VOkYy_SKreb8ht7IuM5H9X8bJ8A7XhOkV4g/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body>
+</html>
+
