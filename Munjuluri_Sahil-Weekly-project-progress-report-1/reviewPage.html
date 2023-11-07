@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Travel App Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('mybackground.jpg'); /* Replace 'mybackground.jpg' with your background image file path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .review-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        textarea {
+            height: 150px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travel App Review</h1>
+    <div class="review-container">
+        <form id="review-form" onsubmit="showThanksMessage(); return false;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="location">Location Visited:</label>
+            <input type="text" id="location" name="location" required>
+            
+            <label for="hotel">Hotel Stayed At:</label>
+            <input type="text" id="hotel" name="hotel" required>
+            
+            <label for="rating">Overall Satisfaction (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+            
+            <label for="travel-date">Date of Travel:</label>
+            <input type="date" id="travel-date" name="travel-date" required>
+            
+            <label for="review">Review:</label>
+            <textarea id="review" name="review" required></textarea>
+            
+            <button type="submit">Submit Review</button>
+        </form>
+        
+        <div id="thanks-message" class="hidden">
+            <p>Thanks for submitting your feedback!</p>
+        </div>
+    </div>
+    
+    <script>
+        function showThanksMessage() {
+            // Hide the form
+            document.getElementById('review-form').style.display = 'none';
+            // Show the thanks message
+            document.getElementById('thanks-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
