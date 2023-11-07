@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Example</title>
+    <script>
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phonePattern = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+        const urlPattern = /^(http|https):\/\/[a-zA-Z0-9-._]+(\.[a-zA-Z0-9-]+)+([/?].*)?$/;
+
+        function validateInput() {
+            const emailInput = document.getElementById("emailInput").value;
+            const phoneInput = document.getElementById("phoneInput").value;
+            const urlInput = document.getElementById("urlInput").value;
+
+            const emailValid = emailPattern.test(emailInput);
+            const phoneValid = phonePattern.test(phoneInput);
+            const urlValid = urlPattern.test(urlInput);
+
+            document.getElementById("emailResult").innerHTML = emailValid ? "Valid" : "Invalid";
+            document.getElementById("phoneResult").innerHTML = phoneValid ? "Valid" : "Invalid";
+            document.getElementById("urlResult").innerHTML = urlValid ? "Valid" : "Invalid";
+        }
+    </script>
+</head>
+<body>
+    <h2>Validation Example</h2>
+    <label for="emailInput">Email Address:</label>
+    <input type="text" id="emailInput">
+    <span id="emailResult"></span>
+
+    <br>
+
+    <label for="phoneInput">Phone Number:</label>
+    <input type="text" id="phoneInput">
+    <span id="phoneResult"></span>
+
+    <br>
+
+    <label for="urlInput">URL:</label>
+    <input type="text" id="urlInput">
+    <span id="urlResult"></span>
+
+    <br>
+
+    <button onclick="validateInput()">Validate</button>
+</body>
+</html>
