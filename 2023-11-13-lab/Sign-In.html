@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('background.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-color: #3498db; /* Background color */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        .error {
+            color: red;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var usernameRegex = /^[a-zA-Z0-9_]{3,20}$/; // Alphanumeric and underscores, 3-20 characters
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/; // At least one digit, one lowercase and one uppercase letter, and 8 or more characters
+
+            // Validate username
+            if (!usernameRegex.test(username)) {
+                document.getElementById("usernameError").innerHTML = "Invalid username. Alphanumeric and underscores, 3-20 characters.";
+                return false;
+            } else {
+                document.getElementById("usernameError").innerHTML = "";
+            }
+
+            // Validate password
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = "Invalid password. At least one digit, one lowercase and one uppercase letter, and 8 or more characters.";
+                return false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign In</h2>
+        <form action="SignIn.php" method="post" onsubmit="return validateForm()">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <span class="error" id="usernameError"></span>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <span class="error" id="passwordError"></span>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
